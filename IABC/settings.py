@@ -30,10 +30,10 @@ environ.Env.read_env()
 SECRET_KEY = 'django-insecure-+a*pyszpo6#i0auxx_+&3v!*1luy)q&(gb$32zf)dk2tue$yqz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #ALLOWED_HOSTS = ['iabcph.herokuapp.com']
-ALLOWED_HOSTS = [".onrender.com"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'IABC_WEB.apps.IabcWebConfig',
     'members',
+    'storages',
     'django_apscheduler',
 ]
 
@@ -55,7 +56,6 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -115,6 +115,17 @@ DATABASES={
    
 }
 
+AWS_ACCESS_KEY_ID = 'AKIAQE43KAGHWBZIHRSZ'
+AWS_SECRET_ACCESS_KEY = '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'
+
+AWS_STORAGE_BUCKET_NAME = 'iabc-ph-bucket'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_FILE_OVERWRITE = False
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 
 
 
@@ -155,11 +166,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIR = [
-    os.path.join(BASE_DIR, 'static')
+    #os.path.join(BASE_DIR, 'static')
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'files')
 MEDIA_URL = '/files/'
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
