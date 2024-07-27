@@ -32,3 +32,6 @@ sqlparse==0.4.2
 tzdata==2021.5
 
 xhtml2pdf==0.2.7
+
+whitenoise==6.7.0
+

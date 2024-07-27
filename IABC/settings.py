@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-+a*pyszpo6#i0auxx_+&3v!*1luy)q&(gb$32zf)dk2tue$yqz
 DEBUG = False
 
 #ALLOWED_HOSTS = ['iabcph.herokuapp.com']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [".onrender.com"]
 
 
 # Application definition
@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -158,6 +159,7 @@ STATICFILES_DIR = [
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'files')
 MEDIA_URL = '/files/'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
