@@ -66,10 +66,26 @@ body {
 	{%for m in mem1%}
 	<tr>
 		<td style="text-align: center;">{{m.id}}</td>
+		{%if m.nick_name%}
 		<td class="tdwrap">{{m.nick_name}}</td>
+		{%else%}
+		<td class="tdwrap">none</td>
+		{%endif%}
+		{%if m.join_date%}
 		<td class="tdwrap">{{m.join_date}}</td>
+		{%else%}
+		<td class="tdwrap">none</td>
+		{%endif%}
+		{%if m.designation%}
 		<td class="tdwrap">{{m.designation}}</td>
+		{%else%}
+		<td class="tdwrap">none</td>
+		{%endif%}
+		{%if m.company_name%}
 		<td class="tdwrap">{{m.company_name}}</td>
+		{%else%}
+		<td class="tdwrap">none</td>
+		{%endif%}
 	</tr>
 	{%endfor%}
 	{%endif%}
