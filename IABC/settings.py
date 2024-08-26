@@ -28,10 +28,10 @@ environ.Env.read_env()
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = '1agaucrzfgekduz&tmvfl9swr*jgrq1wsf2_7@(8rz251c4i=*'
+SECRET_KEY = 'django-insecure-+a*pyszpo6#i0auxx_+&3v!*1luy)q&(gb$32zf)dk2tue$yqz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #ALLOWED_HOSTS = ['iabcph.herokuapp.com']
 ALLOWED_HOSTS = ['*']
