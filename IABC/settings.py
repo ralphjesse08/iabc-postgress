@@ -27,7 +27,7 @@ environ.Env.read_env()
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+a*pyszpo6#i0auxx_+&3v!*1luy)q&(gb$32zf)dk2tue$yqz'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -109,11 +109,18 @@ WSGI_APPLICATION = 'IABC.wsgi.application'
    #}
 #}
 
+
+
 DATABASES={
    'default': dj_database_url.parse(env('DATABASE_URL'))
       
    
 }
+
+""" DATABASES = {
+    'default': dj_database_url.parse(env('DATABASE_URL', default='postgresql://iabcphdatabase_user:hkcFws6v8BxhwJM9yM98WHaCbhhqvsPF@dpg-cr64vt52ng1s7394bcog-a.singapore-postgres.render.com/iabcphdatabase'))
+} """
+
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
